@@ -1,0 +1,36 @@
+<div>
+    <span *ngIf="isLoading">Loading...</span>
+    <div class="flex-container" *ngIf="!isLoading">
+        <div class="box">
+            <div class="label">
+                Subnets
+            </div>
+            <div *ngFor="let subnet of subnets">
+                <button (click)="toggleShow(subnet.id)" type="checkbox" >
+                    {{ (isShown[subnet.id]) ? '-' : '+' }}
+                </button>
+
+                {{ subnet.subnet }}/{{ subnet.cidr}}
+
+                <div *ngIf="isShown[subnet.id]">
+
+                    <div class="ip"
+                         [ngClass]="{'bold':info.ip == ip.ip}"
+                        (click)="toggleInfo(ip)" *ngFor="let ip of subnet.ips">
+                        -{{ ip.ip }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box" *ngIf="info != infoStub">
+            <div class="label" >
+                IP: {{ info.ip }}
+            </div>
+            <div>
+                Subnet: {{ info.subnet }}
+                <br>
+                Address Tag: {{ info.addressTag }}
+            </div>
+        </div>
+    </div>
+</div>

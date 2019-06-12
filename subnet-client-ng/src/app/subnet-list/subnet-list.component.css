@@ -1,0 +1,29 @@
+.flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.flex-container > div {
+    background-color: silver;
+    width: 48%;
+    margin: 5px;
+    font-size: 14pt;
+}
+
+.box {
+    padding: 10px;
+    line-height: 22pt;
+}
+
+.ip {
+    padding-left: 40px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.label {
+    border-bottom: 2px solid black;
+    font-weight: bold;
+}
